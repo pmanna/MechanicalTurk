@@ -22,11 +22,11 @@ AccelStepper motor3(AccelStepper::FULL4WIRE,PB0,PB1,PB11,PB10);
 MultiStepper arm;
 
 float samplePositions[6][3] = {
-  {0.0,0.0,-250.0},
-  {15.0,15.0,-250.0},
-  {15.0,15.0,-180.0},
-  {15.0,75.0,-180.0},
-  {15.0,75.0,-250.0},
+  {0.0,0.0,-200.0},
+  {15.0,15.0,-260.0},
+  {15.0,15.0,-200.0},
+  {60.0,60.0,-200.0},
+  {60.0,60.0,-260.0},
   {0.0,0.0,-120.0}
 };
 
@@ -116,7 +116,7 @@ void setup()
   motor3.setAcceleration(500);
   arm.addStepper(motor3);
 
-  resetMotors(-10);
+  resetMotors(-30);
 
   enableMotors();
   moveRobotTo(samplePositions[0]);
@@ -131,7 +131,7 @@ void loop()
 
     if (progress >= 6) {
       progress = 0;
-      resetMotors(0);
+      resetMotors(-20);
       enableMotors();
    }
     
@@ -142,5 +142,7 @@ void loop()
     } else {
       digitalWrite(MAGNET_PIN, LOW);
     }
+
+    delay(500);
   }
 }
