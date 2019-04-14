@@ -1,3 +1,5 @@
+#include <math.h>
+
 #define EFFECTOR_RADIUS	25.0
 #define BASE_RADIUS 75.0
 #define FOREARM_LENGTH 220.0
